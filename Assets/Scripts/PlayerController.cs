@@ -5,16 +5,21 @@ public class PlayerController : MonoBehaviour {
 
 	public int life = 1;
 	public Transform itemPosition;
+	private Vector2 mDirection = -Vector2.up;
 
 	void FixedUpdate () {
 		Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+		if(direction.magnitude > 0)
+		{
+			mDirection = direction;
+		}
 		SendMessage("MoveToDirection", direction, SendMessageOptions.DontRequireReceiver);
 	}
 
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
-			SendMessage("UseItem", SendMessageOptions.DontRequireReceiver);
+			BroadcastMessage("UseItem", mDirection, SendMessageOptions.DontRequireReceiver);
 		}
 	}
 

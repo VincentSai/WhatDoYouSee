@@ -11,7 +11,7 @@ public class MonsterGenerator : MonoBehaviour
 	public int maxHP;
 	public int minHP;
 	public int numbersOfGeneratePoint;
-	public Vector3[] generatePos = new Vector3[this.numbersOfGeneratePoint];
+	public Vector2[] generatePos = new Vector3[this.numbersOfGeneratePoint];
 	public GameObject zombie;
 
 	private int recentNumbersOfMonsters;

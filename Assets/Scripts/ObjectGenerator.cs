@@ -32,7 +32,6 @@ public class ObjectGenerator : MonoBehaviour
 	 * 	generate object with probability when monster dead.
 	 * 
 	 * 
-	 * 
 	 * *********************/
 	void GenerateObject( Vector2 Pos )
 	{

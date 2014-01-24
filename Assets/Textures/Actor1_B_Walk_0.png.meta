@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 09669bf2708564686ad82c429c8ae6d4
-=======
-guid: e9ed63586bd43924d85bf902c3783f00
->>>>>>> origin/2DAnimation
+guid: 96039d2a8d64ad840b08860c20f0c8b5
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -27,22 +23,10 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: -1
-<<<<<<< HEAD
-<<<<<<< HEAD
+    filterMode: 0
     aniso: 1
     mipBias: -1
     wrapMode: 1
-=======
-    aniso: -1
-    mipBias: -1
-    wrapMode: -1
->>>>>>> Player-and-move
-=======
-    aniso: -1
-    mipBias: -1
-    wrapMode: -1
->>>>>>> origin/2DAnimation
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

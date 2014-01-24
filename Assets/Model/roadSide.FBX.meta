@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f685b893c83234028bd2d2f3dbdcf9c0
+=======
+guid: 2269dc9e5b7bbb94f9366e3a511bd144
+>>>>>>> origin/2DAnimation
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:

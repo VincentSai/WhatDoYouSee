@@ -24,9 +24,21 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
+<<<<<<< HEAD
     aniso: -1
     mipBias: -1
     wrapMode: -1
+=======
+<<<<<<< HEAD
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+=======
+    aniso: -1
+    mipBias: -1
+    wrapMode: -1
+>>>>>>> Player-and-move
+>>>>>>> Play-and-move-Test
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

@@ -3,34 +3,44 @@ using System.Collections;
 
 public class MoveController : MonoBehaviour {
 
-	private CharacterController mController;
+	private Rigidbody2D mRigidbody2D;
 	private Transform mTransform;
-	private float mSpeed = 1f;
+	public float maxSpeed = 5f;
+	private bool mFacingRight = true;
 
 	void Start () {
-		mController = GetComponent<CharacterController>();
+		mRigidbody2D = rigidbody2D;
 		mTransform = transform;
 	}
 
-	void MoveToDirection (Vector3 direction) {
-		//animation.CrossFade("walk");
-		transform.rotation = Quaternion.Slerp (mTransform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * mSpeed);
-		mController.SimpleMove(direction);
+	void MoveToDirection (Vector2 direction) {
+		mRigidbody2D.velocity = Vector2.ClampMagnitude(direction * maxSpeed, maxSpeed);
+
+		if(mRigidbody2D.velocity.x > 0 && !mFacingRight)
+		{
+			Flip();
+		}
+		else if(mRigidbody2D.velocity.x < 0 && mFacingRight)
+		{
+			Flip();
+		}
 	}
 
 	void MoveToTarget (Transform target) {
-		Vector3 direction = target.position - mTransform.position;
-		//animation.CrossFade("walk");
-		// Rotate towards the target
-		transform.rotation = Quaternion.Slerp (mTransform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * mSpeed);
-		
-		// Modify speed so we slow down when we are not facing the target
-		Vector3 forward = transform.TransformDirection(Vector3.forward);
-		float speedModifier = Vector3.Dot(forward, direction.normalized);
-		speedModifier = Mathf.Clamp01(speedModifier);
-		
-		// Move the character
-		direction = forward * mSpeed * speedModifier;
-		mController.SimpleMove(direction);
+		Vector2 direction = target.position - mTransform.position;
+		MoveToDirection(direction);
+	}
+
+	void Flip ()
+	{
+		mFacingRight = !mFacingRight;
+
+		Vector3 theScale = mTransform.localScale;
+		theScale.x *= -1;
+		mTransform.localScale = theScale;
+	}
+
+	void SetSpeed (float speed) {
+		maxSpeed = speed;
 	}
 }

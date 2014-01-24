@@ -1,20 +1,16 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Zombie : MonoBehaviour 
 {
 
 	private Transform mTransform;
-	private MonsterGenerator monsterGenerator;
+	private GameObject monsterGenerator;
 
-	private short healthPoint;
-	
+	private int healthPoint;
+
 	void Start () 
 	{
-		monsterGenerator = GetComponent<MonsterGenerator>();
-		healthPoint = monsterGenerator.GetHP ();
-		SendMessage("SetSpeed" ,monsterGenerator.GetSpeed ());
-
 		mTransform = transform;
 	}
 	
@@ -22,16 +18,30 @@ public class Zombie : MonoBehaviour
 	{
 		if (healthPoint <= 0)
 		{
-			monsterGenerator.Die ();
-			SendMessage("GenerateObject", mTransform.position);
+			monsterGenerator.SendMessage("Die");
+			SendMessage("GenerateItem", mTransform.position, SendMessageOptions.DontRequireReceiver);
+			Destroy(gameObject);
 		}
 	}
-	
-	void OnTriggerEnter(Collider other)
+	public void SetHP( int HP )
 	{
-		if (other.tag == weapons)
+		healthPoint = HP;
+	}
+	public void SetZombieSpeed( float speed )
+	{
+		SendMessage("SetSpeed" ,speed);
+		Debug.Log (speed);
+	}
+	public void SetZombieGenerator(GameObject inMonsterGenerator)
+	{
+		monsterGenerator = inMonsterGenerator;
+	}
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.tag == "Weapons")
 		{
-			heartPoint--;
+			healthPoint--;
 		}
 	}
 	

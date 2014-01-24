@@ -1,9 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class ZombieAI : MonoBehaviour 
+public class ZombieController : MonoBehaviour 
 {
-	public GameObject player;
 
 	// Use this for initialization
 	void Start () 
@@ -14,6 +13,6 @@ public class ZombieAI : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		SendMessage ("MoveToTarget", player.transform.position);
+		SendMessage ("MoveToTarget", GameManager.player.transform);
 	}
 }

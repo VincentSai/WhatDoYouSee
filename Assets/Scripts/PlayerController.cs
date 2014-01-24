@@ -7,6 +7,11 @@ public class PlayerController : MonoBehaviour {
 	public Transform itemPosition;
 	private Vector2 mDirection = -Vector2.up;
 
+	void Awake()
+	{
+		GameManager.SetStaticPlayer (gameObject);
+	}
+
 	void FixedUpdate () {
 		Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 		if(direction.magnitude > 0)

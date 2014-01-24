@@ -8,7 +8,7 @@ public class MoveController : MonoBehaviour {
 	public float maxSpeed = 5f;
 	private bool mFacingRight = true;
 
-	void Start () {
+	void Awake () {
 		mRigidbody2D = rigidbody2D;
 		mTransform = transform;
 	}

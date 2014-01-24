@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ObjectGenerator : MonoBehaviour 
+public class ItemGenerator : MonoBehaviour 
 {
 	public int widthOfGround;
 	public int heightOfGraund;
-	public GameObject aObject;
-	public float monsterDropRate;
+	public GameObject item;
+	public float ZombieDropRate;
 
 	// Use this for initialization
 	void Start () 
 	{
-		InvokeRepeating ("GenerateObject", 5.0f, 60.0f);
+		InvokeRepeating ("GenerateItem", 5.0f, 60.0f);
 	}
 	
 	// Update is called once per frame
@@ -19,11 +19,11 @@ public class ObjectGenerator : MonoBehaviour
 	{
 	
 	}
-	void GenerateObject()
+	void GenerateItem()
 	{
 		Vector2 randomPos = new Vector2(Random.Range (0, widthOfGround-1), Random.Range (0, heightOfGraund-1));
 
-		Instantiate (aObject, randomPos, Quaternion.identity);
+		Instantiate (item, randomPos, Quaternion.identity);
 	}
 
 	/***********************
@@ -33,11 +33,11 @@ public class ObjectGenerator : MonoBehaviour
 	 * 
 	 * 
 	 * *********************/
-	void GenerateObject( Vector2 Pos )
+	void GenerateItem( Vector2 Pos )
 	{
 		float probability = Random.Range (0, 100) / 100.0f;
 
-		if(probability >= monsterDropRate)
-			Instantiate (aObject, randomPos, Quaternion.identity);
+		if(probability >= ZombieDropRate)
+			Instantiate (item, Pos, Quaternion.identity);
 	}
 }

@@ -23,12 +23,10 @@ public class Zombie : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
-		AIscript isWeapons = other.gameObject.GetComponent<Weapons>();
-		if (isWeapons)
+		if (other.tag == weapons)
 		{
 			heartPoint--;
 		}
-		Debug.Log("WeaponsZombies");
 	}
 	
 }

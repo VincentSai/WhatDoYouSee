@@ -16,13 +16,12 @@ public class ZombieAI : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		Vector3 dir;
+		Vector2 dir;
 
 		dir = player.transform.position - this.transform.position;
 		dir.Normalized ();
 
-		this.transform.position = new Vector3 (this.transform.position.x + dir.x * zombie.speed,
-		                                      0,
-		                                      this.transform.position.z + dir.z * zombie.speed);
+		this.transform.position = new Vector2 (this.transform.position.x + dir.x * zombie.speed,
+		                                      this.transform.position.y + dir.y * zombie.speed);
 	}
 }

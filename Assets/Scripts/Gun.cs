@@ -14,11 +14,13 @@ public class Gun : MonoBehaviour {
 		mTransform = transform;
 	}
 
-	void UseItem (Vector2 direction) {
+	IEnumerator UseItem (Vector2 direction) {
 		if(Time.time - mLastFireTime < delay)
 		{
-			return;
+			yield break;
 		}
+		mLastFireTime = Time.time;
+
 		bulletAmount -= 1;
 		if(bulletAmount <= 0)
 		{
@@ -26,6 +28,7 @@ public class Gun : MonoBehaviour {
 		}
 		GameObject bulletInstance = Instantiate(gameObject, mTransform.position, Quaternion.identity) as GameObject;
 		bulletInstance.layer = 9;
+		bulletInstance.renderer.enabled = true;
 		Rigidbody2D bullectRigid = bulletInstance.AddComponent<Rigidbody2D>();
 		bullectRigid.gravityScale = 0;
 		bullectRigid.fixedAngle = true;
@@ -34,6 +37,13 @@ public class Gun : MonoBehaviour {
 		bulletInstance.collider2D.isTrigger = false;
 		bullectRigid.velocity = (direction * 20000).normalized * speed;
 		Destroy(bulletInstance, 2);
+		renderer.enabled = false;
+		yield return new WaitForSeconds(delay - (Time.time - mLastFireTime));
+		renderer.enabled = true;
+	}
+
+	void PlayGetItemSound () {
+		SoundManager.instance.PlayAudioWithName("biggun");
 	}
 
 	void RemoveItem () {

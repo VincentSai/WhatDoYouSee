@@ -3,13 +3,17 @@ using System.Collections;
 
 public class Food : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+
+	void UseItem (Vector2 direction) {
+		GameManager.player.gameObject.SendMessage ("BecomeSuperMan");
+		RemoveItem ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void PlayGetItemSound () {
+		SoundManager.instance.PlayAudioWithName("holylight");
+	}
+  
+	void RemoveItem () {
+		Destroy(gameObject);
 	}
 }

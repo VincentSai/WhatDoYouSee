@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 		Holding
 	}
 
+
 	public int life = 1;
 	public Transform itemPosition;
 	private Vector2 mDirection = -Vector2.up;
@@ -113,6 +114,13 @@ public class PlayerController : MonoBehaviour {
 		other.SendMessage("OnPlayerTouch", gameObject, SendMessageOptions.DontRequireReceiver);
 	}
 
+	void OnCollisionEnter2D(Collision2D other) {
+		if(enabled && other.transform.tag == "Zombie")
+		{
+			Damage(1);
+		}
+	}
+
 	void Damage (int damage) {
 		life = life - damage;
 		if(life <= 0)
@@ -127,7 +135,17 @@ public class PlayerController : MonoBehaviour {
 		item.localPosition = Vector3.zero;
 	}
 
-	void Dead () {
-		//dead
+	IEnumerator Dead () {
+		enabled = false;
+		itemPosition.BroadcastMessage("RemoveItem", SendMessageOptions.DontRequireReceiver);
+		yield return new WaitForSeconds(3);
+		Application.LoadLevel(Application.loadedLevel);
+	}
+
+	IEnumerator BecomeSuperMan()
+	{
+		SendMessage("SetSpeed", 6f, SendMessageOptions.DontRequireReceiver);
+		yield return new WaitForSeconds(3);
+		SendMessage("SetSpeed", 3f, SendMessageOptions.DontRequireReceiver);
 	}
 }

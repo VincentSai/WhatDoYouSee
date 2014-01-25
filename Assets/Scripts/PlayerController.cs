@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour {
 		{
 			fireButton.enabled = false;
 		}
+		else
+		{
+			fireButton.enabled = true;
+		}
 	}
 
 	void FixedUpdate () {

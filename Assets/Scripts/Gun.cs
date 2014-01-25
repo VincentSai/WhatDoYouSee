@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour {
 	private Transform mTransform;
 	private float mLastFireTime = 0f;
 	public float delay = 0.5f;
+	public int bulletAmount = 20;
 
 	void Start () {
 		mTransform = transform;
@@ -18,7 +19,13 @@ public class Gun : MonoBehaviour {
 		{
 			return;
 		}
+		bulletAmount -= 1;
+		if(bulletAmount <= 0)
+		{
+			mTransform.root.BroadcastMessage("RemoveItem", SendMessageOptions.DontRequireReceiver);
+		}
 		GameObject bulletInstance = Instantiate(gameObject, mTransform.position, Quaternion.identity) as GameObject;
+		bulletInstance.layer = 9;
 		Rigidbody2D bullectRigid = bulletInstance.AddComponent<Rigidbody2D>();
 		bullectRigid.velocity = direction.normalized * speed;
 		bullectRigid.gravityScale = 0;

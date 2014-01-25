@@ -76,4 +76,16 @@ public class MoveController : MonoBehaviour {
 		}
 		mAnimator.SetBool("dead", true);
 	}
+
+	void GetItem () {
+		mAnimator.SetBool("weapon", true);
+	}
+
+	void UseItem () {
+		mAnimator.SetTrigger("fire");
+	}
+
+	void RemoveItem () {
+		mAnimator.SetBool("weapon", false);
+	}
 }

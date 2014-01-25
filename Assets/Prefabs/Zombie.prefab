@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 95: {fileID: 9500000}
   - 212: {fileID: 21200000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ItemPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,8 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31b70bd4f48943bea8346240e297cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5000000, guid: 7f5641cd180d244d0a31c5e91be9fd5a, type: 2}
   speed: 3
+  delay: .5
+  bulletAmount: 20
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

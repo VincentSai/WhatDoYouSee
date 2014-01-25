@@ -26,6 +26,11 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	void Awake()
+	{
+		GameManager.SetStaticPlayer (gameObject);
+	}
+
 	void FixedUpdate () {
 		Vector2 direction = Vector2.zero;
 

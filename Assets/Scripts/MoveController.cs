@@ -9,7 +9,7 @@ public class MoveController : MonoBehaviour {
 	private bool mFacingRight = false;
 	private Animator mAnimator;
 
-	void Start () {
+	void Awake () {
 		mRigidbody2D = rigidbody2D;
 		mTransform = transform;
 		mAnimator = GetComponent<Animator>();

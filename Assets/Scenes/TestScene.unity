@@ -74,7 +74,63 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &136642435
+=======
+--- !u!1 &207617626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 207617628}
+  - 114: {fileID: 207617627}
+  m_Layer: 0
+  m_Name: ZombieGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &207617627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 207617626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9779073f01b146b4e894f4b939cf79db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxNumbersOfMonsters: 5
+  maxLevel: 50
+  maxSpeed: 10
+  minSpeed: .800000012
+  maxHP: 10
+  minHP: 0
+  generatePos:
+  - {x: 2, y: 2}
+  - {x: -2, y: 2}
+  - {x: -2, y: -2}
+  - {x: 2, y: -2}
+  zombie: {fileID: 100000, guid: 623e16a33df692b41af45350eb8dec95, type: 2}
+  firstZombieAppearTime: 0
+  zombieGenerateTimeInterval: 2
+--- !u!4 &207617628
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 207617626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .596456766, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!1 &379382658
+>>>>>>> origin/Item-Generator
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -104,8 +160,104 @@ Transform:
 --- !u!1 &279189942
 GameObject:
   m_ObjectHideFlags: 0
+<<<<<<< HEAD
   m_PrefabParentObject: {fileID: 100000, guid: 64de27285b22b43cdb4ff8af28746329, type: 2}
   m_PrefabInternal: {fileID: 1923103365}
+=======
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 883274336}
+  - 114: {fileID: 883274337}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &883274336
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 883274335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 379382659}
+--- !u!114 &883274337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 883274335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31b70bd4f48943bea8346240e297cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 5000000, guid: 7f5641cd180d244d0a31c5e91be9fd5a, type: 2}
+  speed: 3
+--- !u!1 &916269611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 916269613}
+  - 114: {fileID: 916269612}
+  m_Layer: 0
+  m_Name: ItemGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &916269612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 916269611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df4675a17dedd14ca0d4ef0ed80075c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widthOfGround: 5
+  heightOfGraund: 5
+  item: {fileID: 0}
+  zombieDropRate: 0
+  firstItemAppearTime: 0
+  itemGenerateTimeInterval: 2
+  candy: {fileID: 100004, guid: 54e574900b5309c448ebb651fd7fe331, type: 2}
+  chair: {fileID: 100000, guid: 844d5b17ccc86784da204059984b591d, type: 2}
+  pillow: {fileID: 100000, guid: ea34625591c9bda4d899e94f82f39c3d, type: 2}
+  stethoscope: {fileID: 100004, guid: 2c3fc32b9c44c2544995ffc93132e432, type: 2}
+  apple: {fileID: 100000, guid: 9587d3990390df54a952789d3da5a883, type: 2}
+  orange: {fileID: 100004, guid: 3ae4059f762e4844d8e6fb3b9b755f28, type: 2}
+  pizza: {fileID: 100000, guid: 0c6b152862ba03a4eb4cfa0be3cce6c4, type: 2}
+--- !u!4 &916269613
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 916269611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!1 &1391302246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+>>>>>>> origin/Item-Generator
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 279189949}
@@ -305,6 +457,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
 --- !u!114 &1424126029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,26 +477,40 @@ MonoBehaviour:
   minXAndY: {x: -10, y: -10}
   player: {fileID: 279189949}
 --- !u!1 &1427719144
+=======
+--- !u!1 &1984086518
+>>>>>>> origin/Item-Generator
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD
   - 4: {fileID: 1427719145}
   - 114: {fileID: 1427719146}
   m_Layer: 0
   m_Name: GameObject
+=======
+  - 4: {fileID: 1984086519}
+  m_Layer: 0
+  m_Name: GameManager
+>>>>>>> origin/Item-Generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &1427719145
+=======
+--- !u!4 &1984086519
+>>>>>>> origin/Item-Generator
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1427719144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -403,3 +570,11 @@ Prefab:
   m_RootGameObject: {fileID: 279189942}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+=======
+  m_GameObject: {fileID: 1984086518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .596456766, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+>>>>>>> origin/Item-Generator

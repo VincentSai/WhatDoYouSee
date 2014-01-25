@@ -115,7 +115,15 @@ public class PlayerController : MonoBehaviour {
 		other.SendMessage("OnPlayerTouch", gameObject, SendMessageOptions.DontRequireReceiver);
 	}
 
+	void OnCollisionEnter2D(Collision2D other) {
+		Damage(1);
+	}
+
 	void Damage (int damage) {
+		if(mIsSuperMan)
+		{
+			return;
+		}
 		life = life - damage;
 		if(life <= 0)
 		{
@@ -129,18 +137,16 @@ public class PlayerController : MonoBehaviour {
 		item.localPosition = Vector3.zero;
 	}
 
-	void Dead () {
-		//dead
+	IEnumerator Dead () {
+		enabled = false;
+		yield return new WaitForSeconds(3);
+		Application.LoadLevel(Application.loadedLevel);
 	}
-	void BecomeSuperMan()
+
+	IEnumerator BecomeSuperMan()
 	{
 		mIsSuperMan = true;
-		life = 1000000;
-		InvokeRepeating ("EndSuperMan", 3, 0);
-	}
-	void EndSuperMan()
-	{
-		life = 1;
+		yield return new WaitForSeconds(3);
 		mIsSuperMan = false;
 	}
 }

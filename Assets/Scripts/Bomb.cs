@@ -4,6 +4,7 @@ using System.Collections;
 public class Bomb : MonoBehaviour {
 
 	public float speed = 3;
+	public float radius = 1.5f;
 	private Transform mTransform;
 	private float time;
 	private Vector3 bombDir;
@@ -40,6 +41,12 @@ public class Bomb : MonoBehaviour {
 				collider2D.enabled = true;
 				isBom = true;
 				time = 0;
+				Collider2D[] targets;
+				targets = Physics2D.OverlapCircleAll((Vector2)mTransform.position, radius);
+				foreach(Collider2D target in targets)
+				{
+					target.SendMessage("SubHealth", SendMessageOptions.DontRequireReceiver);
+				}
 			}
 			if(isBom && time >= 0.3)
 			{

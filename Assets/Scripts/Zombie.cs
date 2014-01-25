@@ -55,16 +55,22 @@ public class Zombie : MonoBehaviour
 			SendMessage("GenerateItem", mTransform.position, SendMessageOptions.DontRequireReceiver);
 		}
 	}
-	//Detect Bomb
-	void OnTriggerStay2D(Collider2D other)
-	{
-		if (other.gameObject.tag == "Weapons")
-		{
-			healthPoint--;
-		}
-	}
+//	//Detect Bomb
+//	void OnTriggerEnter2D(Collider2D other)
+//	{
+//		if (other.gameObject.tag == "Weapons")
+//		{
+//			healthPoint--;
+//		}
+//	}
 	void SubHealth()
 	{
 		healthPoint--;
+		if (healthPoint <= 0)
+		{
+			//monsterGenerator.SendMessage("Die");
+			SendMessage("Dead", SendMessageOptions.DontRequireReceiver);
+			SendMessage("GenerateItem", mTransform.position, SendMessageOptions.DontRequireReceiver);
+		}
 	}
 }

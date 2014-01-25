@@ -5,7 +5,7 @@ public class Food : MonoBehaviour {
 
 
 	void UseItem (Vector2 direction) {
-		GameManager.player.gameObject.SendMessage ("BecomeSuperMan");
+		GameManager.player.SendMessage ("BecomeSuperMan");
 		RemoveItem ();
 	}
 	

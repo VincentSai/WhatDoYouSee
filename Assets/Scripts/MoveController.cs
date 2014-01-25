@@ -31,7 +31,18 @@ public class MoveController : MonoBehaviour {
 		}
 		if(Mathf.Max(Mathf.Abs(mRigidbody2D.velocity.x), Mathf.Abs(mRigidbody2D.velocity.y)) == Mathf.Abs(mRigidbody2D.velocity.y))
 		{
-			mAnimator.SetInteger("upDown", (mRigidbody2D.velocity.y > 0) ? 1 : -1);
+			if(mRigidbody2D.velocity.y > 0 && !mFacingRight)
+			{
+				Flip();
+			}
+			else if(mRigidbody2D.velocity.y < 0 && mFacingRight)
+			{
+				Flip();
+			}
+			if(mRigidbody2D.velocity.y != 0)
+			{
+				mAnimator.SetInteger("upDown", (mRigidbody2D.velocity.y > 0) ? 1 : -1);
+			}
 		}
 		else
 		{

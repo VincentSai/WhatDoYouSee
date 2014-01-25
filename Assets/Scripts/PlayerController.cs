@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 		Holding
 	}
 
+
 	public int life = 1;
 	public Transform itemPosition;
 	private Vector2 mDirection = -Vector2.up;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 	private Vector2 mMoveTouchStartPosition;
 	private int mMoveTouchId = -1;
 	private int mFireTouchId = -1;
+	private bool mIsSuperMan = false;
 
 	void Awake () {
 		GameManager.SetStaticPlayer (gameObject);
@@ -113,7 +115,15 @@ public class PlayerController : MonoBehaviour {
 		other.SendMessage("OnPlayerTouch", gameObject, SendMessageOptions.DontRequireReceiver);
 	}
 
+	void OnCollisionEnter2D(Collision2D other) {
+		Damage(1);
+	}
+
 	void Damage (int damage) {
+		if(mIsSuperMan)
+		{
+			return;
+		}
 		life = life - damage;
 		if(life <= 0)
 		{
@@ -127,7 +137,16 @@ public class PlayerController : MonoBehaviour {
 		item.localPosition = Vector3.zero;
 	}
 
-	void Dead () {
-		//dead
+	IEnumerator Dead () {
+		enabled = false;
+		yield return new WaitForSeconds(3);
+		Application.LoadLevel(Application.loadedLevel);
+	}
+
+	IEnumerator BecomeSuperMan()
+	{
+		mIsSuperMan = true;
+		yield return new WaitForSeconds(3);
+		mIsSuperMan = false;
 	}
 }

@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		Vector2 direction = Vector2.zero;
 
-#if UNITY_IPHONE || UNITY_ANDROID
+#if !UNITY_EDITOR && (UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8)
 		int maxTouchCount = 2;
 		int touchCount = 0;
 		foreach(Touch touch in Input.touches)

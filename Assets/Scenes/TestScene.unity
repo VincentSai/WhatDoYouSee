@@ -346,6 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  delay: .5
 --- !u!1 &1156292365
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,3 +774,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  delay: .5

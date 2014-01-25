@@ -13,7 +13,7 @@ public class Gun : MonoBehaviour {
 
 	void UseItem (Vector2 direction) {
 		Rigidbody2D bulletInstance = Instantiate(bullet, mTransform.position, Quaternion.identity) as Rigidbody2D;
-		bulletInstance.velocity = direction.normalized * speed;
+		bulletInstance.velocity = (direction*20000).normalized * speed;
 	}
 
 	void RemoveItem () {

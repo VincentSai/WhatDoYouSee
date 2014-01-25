@@ -41,7 +41,7 @@ public class Zombie : MonoBehaviour
 	{
 		monsterGenerator = inMonsterGenerator;
 	}
-
+	//Detect Bullet
 	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.tag == "Weapons")
@@ -55,5 +55,16 @@ public class Zombie : MonoBehaviour
 			SendMessage("GenerateItem", mTransform.position, SendMessageOptions.DontRequireReceiver);
 		}
 	}
-	
+	//Detect Bomb
+	void OnTriggerStay2D(Collider2D other)
+	{
+		if (other.gameObject.tag == "Weapons")
+		{
+			healthPoint--;
+		}
+	}
+	void SubHealth()
+	{
+		healthPoint--;
+	}
 }

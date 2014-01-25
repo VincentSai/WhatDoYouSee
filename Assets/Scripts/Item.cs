@@ -1,17 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Item : MonoBehaviour 
-{
-	public GameObject attribute;
-
-	void Start()
-	{
-
-	}
+public class Item : MonoBehaviour {
 
 	void OnPlayerTouch (GameObject player) {
-		collider2D.enabled = false;
+		collider.enabled = false;
 		player.SendMessage("GetItem", transform, SendMessageOptions.DontRequireReceiver);
 		Destroy(this);
 	}

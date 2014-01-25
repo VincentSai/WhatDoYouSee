@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour {
 	private Vector2 mMoveTouchStartPosition;
 	private int mMoveTouchId = -1;
 	private int mFireTouchId = -1;
-	private bool mIsSuperMan = false;
 
 	void Awake () {
 		GameManager.SetStaticPlayer (gameObject);
@@ -120,10 +119,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Damage (int damage) {
-		if(mIsSuperMan)
-		{
-			return;
-		}
 		life = life - damage;
 		if(life <= 0)
 		{
@@ -145,8 +140,8 @@ public class PlayerController : MonoBehaviour {
 
 	IEnumerator BecomeSuperMan()
 	{
-		mIsSuperMan = true;
+		SendMessage("SetSpeed", 6f, SendMessageOptions.DontRequireReceiver);
 		yield return new WaitForSeconds(3);
-		mIsSuperMan = false;
+		SendMessage("SetSpeed", 3f, SendMessageOptions.DontRequireReceiver);
 	}
 }

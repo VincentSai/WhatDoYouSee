@@ -8,7 +8,11 @@ public class Food : MonoBehaviour {
 		GameManager.player.gameObject.SendMessage ("BecomeSuperMan");
 		RemoveItem ();
 	}
-	
+
+	void PlayGetItemSound () {
+		SoundManager.instance.PlayAudioWithName("holylight");
+	}
+  
 	void RemoveItem () {
 		Destroy(gameObject);
 	}

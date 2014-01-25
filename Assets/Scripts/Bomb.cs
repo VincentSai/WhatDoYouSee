@@ -29,6 +29,11 @@ public class Bomb : MonoBehaviour {
 		StartCoroutine (ThrowBomb ());
 	}
 
+	void PlayGetItemSound () {
+		int index = (Random.Range(0, 100) % 3) + 1;
+		SoundManager.instance.PlayAudioWithName("bomb" + index.ToString());
+	}
+
 	IEnumerator ThrowBomb () {
 		time = 0;
 		while(true)

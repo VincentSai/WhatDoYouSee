@@ -18,6 +18,7 @@ public class SoundManager : MonoBehaviour {
 				return clip;
 			}
 		}
+		return null;
 	}
 
 	public void PlayAudioWithName (string clipName) {

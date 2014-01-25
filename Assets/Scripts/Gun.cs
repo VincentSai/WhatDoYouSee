@@ -36,6 +36,10 @@ public class Gun : MonoBehaviour {
 		Destroy(bulletInstance, 2);
 	}
 
+	void PlayGetItemSound () {
+		SoundManager.instance.PlayAudioWithName("biggun");
+	}
+
 	void RemoveItem () {
 		Destroy(gameObject);
 	}

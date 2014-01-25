@@ -6,16 +6,21 @@ public class MoveController : MonoBehaviour {
 	private Rigidbody2D mRigidbody2D;
 	private Transform mTransform;
 	public float maxSpeed = 5f;
-	private bool mFacingRight = true;
+	private bool mFacingRight = false;
+	private Animator mAnimator;
 
-	void Start () {
+	void Awake () {
 		mRigidbody2D = rigidbody2D;
 		mTransform = transform;
+		mAnimator = GetComponent<Animator>();
 	}
 
 	void MoveToDirection (Vector2 direction) {
 		mRigidbody2D.velocity = Vector2.ClampMagnitude(direction * maxSpeed, maxSpeed);
-
+		if(mAnimator)
+		{
+			mAnimator.SetFloat("speed", mRigidbody2D.velocity.magnitude);
+		}
 		if(mRigidbody2D.velocity.x > 0 && !mFacingRight)
 		{
 			Flip();

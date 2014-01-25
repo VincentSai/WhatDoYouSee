@@ -1,15 +1,11 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 09669bf2708564686ad82c429c8ae6d4
-=======
-guid: e9ed63586bd43924d85bf902c3783f00
->>>>>>> origin/2DAnimation
+guid: b32f7b93e428c428c8d39e74dfcd393e
 TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    linearTexture: 0
+    linearTexture: 1
     correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
@@ -28,43 +24,20 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-<<<<<<< HEAD
-<<<<<<< HEAD
-    aniso: -1
-    mipBias: -1
-    wrapMode: -1
-=======
-=======
->>>>>>> Item-Generator-Test
-<<<<<<< HEAD
     aniso: 1
     mipBias: -1
     wrapMode: 1
-=======
-    aniso: -1
-    mipBias: -1
-    wrapMode: -1
->>>>>>> Player-and-move
-<<<<<<< HEAD
->>>>>>> Play-and-move-Test
-=======
-=======
-    aniso: -1
-    mipBias: -1
-    wrapMode: -1
->>>>>>> origin/2DAnimation
->>>>>>> Item-Generator-Test
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
-  textureType: 8
+  textureType: 2
   buildTargetSettings:
   - buildTarget: iPhone
     maxTextureSize: 1024

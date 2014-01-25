@@ -115,7 +115,10 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		Damage(1);
+		if(enabled && other.transform.tag == "Zombie")
+		{
+			Damage(1);
+		}
 	}
 
 	void Damage (int damage) {
@@ -134,6 +137,7 @@ public class PlayerController : MonoBehaviour {
 
 	IEnumerator Dead () {
 		enabled = false;
+		itemPosition.BroadcastMessage("RemoveItem", SendMessageOptions.DontRequireReceiver);
 		yield return new WaitForSeconds(3);
 		Application.LoadLevel(Application.loadedLevel);
 	}

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 		Holding
 	}
 
+
 	public int life = 1;
 	public Transform itemPosition;
 	private Vector2 mDirection = -Vector2.up;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 	private Vector2 mMoveTouchStartPosition;
 	private int mMoveTouchId = -1;
 	private int mFireTouchId = -1;
+	private bool mIsSuperMan = false;
 
 	void Awake () {
 		GameManager.SetStaticPlayer (gameObject);
@@ -129,5 +131,16 @@ public class PlayerController : MonoBehaviour {
 
 	void Dead () {
 		//dead
+	}
+	void BecomeSuperMan()
+	{
+		mIsSuperMan = true;
+		life = 1000000;
+		InvokeRepeating ("EndSuperMan", 3, 0);
+	}
+	void EndSuperMan()
+	{
+		life = 1;
+		mIsSuperMan = false;
 	}
 }

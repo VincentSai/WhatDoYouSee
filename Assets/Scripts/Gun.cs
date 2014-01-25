@@ -3,17 +3,40 @@ using System.Collections;
 
 public class Gun : MonoBehaviour {
 
-	public Rigidbody2D bullet;
-	public float speed;
+	public float speed = 3;
 	private Transform mTransform;
+	private Vector3 dir;
+	private float time;
+	private Vector3 originalPos;
 
 	void Start () {
 		mTransform = transform;
 	}
 
 	void UseItem (Vector2 direction) {
-		Rigidbody2D bulletInstance = Instantiate(bullet, mTransform.position, Quaternion.identity) as Rigidbody2D;
-		bulletInstance.velocity = (direction*20000).normalized * speed;
+		dir.x = direction.x;
+		dir.y = direction.y;
+		dir.z = 0;
+		dir *= 20000;
+		dir.Normalize ();
+		originalPos = transform.parent.position;
+		StartCoroutine (Shoot());
+	}
+	IEnumerator Shoot()
+	{
+		time = 0;
+		transform.parent = null;
+		while (true) 
+		{
+			time += Time.deltaTime;
+			mTransform.position =originalPos + dir * speed * time;
+			if(time >= 2.0f) 
+			{
+				RemoveItem();
+				yield break;
+			}
+			yield return null;
+		}
 	}
 
 	void RemoveItem () {

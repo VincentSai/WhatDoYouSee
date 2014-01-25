@@ -29,6 +29,14 @@ public class MoveController : MonoBehaviour {
 		{
 			Flip();
 		}
+		if(Mathf.Max(Mathf.Abs(mRigidbody2D.velocity.x), Mathf.Abs(mRigidbody2D.velocity.y)) == Mathf.Abs(mRigidbody2D.velocity.y))
+		{
+			mAnimator.SetInteger("upDown", (mRigidbody2D.velocity.y > 0) ? 1 : -1);
+		}
+		else
+		{
+			mAnimator.SetInteger("upDown", 0);
+		}
 	}
 
 	void MoveToTarget (Transform target) {
@@ -47,5 +55,37 @@ public class MoveController : MonoBehaviour {
 
 	void SetSpeed (float speed) {
 		maxSpeed = speed;
+	}
+
+	void Dead () {
+		if(Mathf.Max(Mathf.Abs(mRigidbody2D.velocity.x), Mathf.Abs(mRigidbody2D.velocity.y)) == Mathf.Abs(mRigidbody2D.velocity.y))
+		{
+			mAnimator.SetInteger("upDown", (mRigidbody2D.velocity.y > 0) ? 1 : -1);
+		}
+		else
+		{
+			mAnimator.SetInteger("upDown", 0);
+		}
+		if(mRigidbody2D.velocity.x > 0 && !mFacingRight)
+		{
+			Flip();
+		}
+		else if(mRigidbody2D.velocity.x < 0 && mFacingRight)
+		{
+			Flip();
+		}
+		mAnimator.SetBool("dead", true);
+	}
+
+	void GetItem () {
+		mAnimator.SetBool("weapon", true);
+	}
+
+	void UseItem () {
+		mAnimator.SetTrigger("fire");
+	}
+
+	void RemoveItem () {
+		mAnimator.SetBool("weapon", false);
 	}
 }

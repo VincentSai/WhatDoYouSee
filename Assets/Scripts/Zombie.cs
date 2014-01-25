@@ -14,15 +14,21 @@ public class Zombie : MonoBehaviour
 		mTransform = transform;
 	}
 	
-	void Update () 
-	{
-		if (healthPoint <= 0)
-		{
-			monsterGenerator.SendMessage("Die");
-			SendMessage("GenerateItem", mTransform.position, SendMessageOptions.DontRequireReceiver);
-			Destroy(gameObject);
-		}
+//	void Update () 
+//	{
+//		if (healthPoint <= 0)
+//		{
+//			//monsterGenerator.SendMessage("Die");
+//			SendMessage("Dead", SendMessageOptions.DontRequireReceiver);
+//			SendMessage("GenerateItem", mTransform.position, SendMessageOptions.DontRequireReceiver);
+//		}
+//	}
+
+	IEnumerator Dead () {
+		yield return new WaitForSeconds(0.5f);
+		Destroy(gameObject);
 	}
+
 	public void SetHP( int HP )
 	{
 		healthPoint = HP;
@@ -41,6 +47,12 @@ public class Zombie : MonoBehaviour
 		if (other.gameObject.tag == "Weapons")
 		{
 			healthPoint--;
+		}
+		if (healthPoint <= 0)
+		{
+			//monsterGenerator.SendMessage("Die");
+			SendMessage("Dead", SendMessageOptions.DontRequireReceiver);
+			SendMessage("GenerateItem", mTransform.position, SendMessageOptions.DontRequireReceiver);
 		}
 	}
 	//Detect Bomb

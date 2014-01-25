@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 09669bf2708564686ad82c429c8ae6d4
 =======
 guid: e9ed63586bd43924d85bf902c3783f00
 >>>>>>> origin/2DAnimation
+=======
+guid: e9ed63586bd43924d85bf902c3783f00
+>>>>>>> 2DAnimation
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -30,6 +34,7 @@ TextureImporter:
     filterMode: -1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     aniso: -1
     mipBias: -1
     wrapMode: -1
@@ -54,6 +59,11 @@ TextureImporter:
     wrapMode: -1
 >>>>>>> origin/2DAnimation
 >>>>>>> Item-Generator-Test
+=======
+    aniso: -1
+    mipBias: -1
+    wrapMode: -1
+>>>>>>> 2DAnimation
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

@@ -20,12 +20,12 @@ public class Gun : MonoBehaviour {
 		dir *= 20000;
 		dir.Normalize ();
 		originalPos = transform.parent.position;
+		transform.parent = null;
 		StartCoroutine (Shoot());
 	}
 	IEnumerator Shoot()
 	{
 		time = 0;
-		transform.parent = null;
 		while (true) 
 		{
 			time += Time.deltaTime;

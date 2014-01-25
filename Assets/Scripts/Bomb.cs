@@ -22,6 +22,7 @@ public class Bomb : MonoBehaviour {
 		bombDir.z = 0;
 		bombDir.Normalize ();
 		originalPos = transform.parent.position;
+		transform.parent = null;
 		//InvokeRepeating ("ThrowBomb", 0, 0.01f);
 		StartCoroutine (ThrowBomb ());
 	}
@@ -36,7 +37,6 @@ public class Bomb : MonoBehaviour {
 			if (time >= 1.0f && !isBom) 
 			{
 				collider2D.enabled = true;
-				transform.parent = null;
 				isBom = true;
 				time = 0;
 			}

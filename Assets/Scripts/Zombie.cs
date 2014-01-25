@@ -30,7 +30,6 @@ public class Zombie : MonoBehaviour
 	public void SetZombieSpeed( float speed )
 	{
 		SendMessage("SetSpeed" ,speed);
-		Debug.Log (speed);
 	}
 	public void SetZombieGenerator(GameObject inMonsterGenerator)
 	{

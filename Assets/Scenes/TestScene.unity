@@ -383,6 +383,51 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1 &1755958618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1755958620}
+  - 114: {fileID: 1755958619}
+  m_Layer: 0
+  m_Name: ItemGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1755958619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1755958618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df4675a17dedd14ca0d4ef0ed80075c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widthOfGround: 5
+  heightOfGraund: 5
+  item: {fileID: 100000, guid: bfc0ca8d5d88c2a4c9a55314d1cef350, type: 2}
+  ZombieDropRate: 0
+  gun: {fileID: 100000, guid: a82da0d05787d964daa4a6490b53e02b, type: 2}
+  food: {fileID: 100000, guid: c6999b6f9b7cba3458b87d94a9ea504c, type: 2}
+  bomb: {fileID: 100000, guid: 556ccd0a7cfd54742bb56f585980306d, type: 2}
+--- !u!4 &1755958620
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1755958618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .596456766, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1984086518
 GameObject:
   m_ObjectHideFlags: 0

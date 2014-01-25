@@ -12,6 +12,8 @@ public class ZombieGenerator : MonoBehaviour
 	public int minHP;
 	public Vector2[] generatePos = new Vector2[4];
 	public GameObject zombie;
+	public float firstZombieAppearTime;
+	public float zombieGenerateTimeInterval;
 
 	private int recentNumbersOfMonsters;
 	private int recentLevel;
@@ -37,7 +39,7 @@ public class ZombieGenerator : MonoBehaviour
 			if (!isStartGenerateMonster)
 			{
 				// Generate one Zombie per two second 
-				InvokeRepeating("GenerateZombie", 2.0f, 1.0f);
+				InvokeRepeating("GenerateZombie", firstZombieAppearTime, zombieGenerateTimeInterval);
 				isStartGenerateMonster = true;
 
 			} else if(generatedMonsters == maxNumbersOfMonsters)

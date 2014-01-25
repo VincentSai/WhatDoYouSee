@@ -11,8 +11,12 @@ public class ZombieController : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
-		SendMessage ("MoveToTarget", GameManager.player.transform);
+		SendMessage ("MoveToTarget", GameManager.player.transform, SendMessageOptions.DontRequireReceiver);
+	}
+
+	void Dead () {
+		enabled = false;
 	}
 }

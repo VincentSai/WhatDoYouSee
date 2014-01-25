@@ -17,6 +17,7 @@ public class Bomb : MonoBehaviour {
 	
 	void UseItem (Vector2 direction) 
 	{
+		gameObject.tag = "Weapons";
 		bombDir.x = direction.x*2000;
 		bombDir.y = direction.y*2000;
 		bombDir.z = 0;

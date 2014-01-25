@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 #elif UNITY_EDITOR
-		direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+		direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 #endif
 		if(direction.magnitude > 0)
 		{

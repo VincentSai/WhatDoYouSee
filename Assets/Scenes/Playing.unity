@@ -18970,8 +18970,6 @@ GameObject:
   - 124: {fileID: 1424126025}
   - 81: {fileID: 1424126024}
   - 114: {fileID: 1424126029}
-  - 132: {fileID: 1424126030}
-  - 131: {fileID: 1424126031}
   - 114: {fileID: 1424126032}
   m_Layer: 0
   m_Name: Main Camera
@@ -19037,7 +19035,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1424126023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0464780331, y: 0, z: -10}
+  m_LocalPosition: {x: -.762238741, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -19059,48 +19057,6 @@ MonoBehaviour:
   maxXAndY: {x: 20, y: 20}
   minXAndY: {x: -20, y: -20}
   player: {fileID: 279189949}
---- !u!132 &1424126030
-GUIText:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1424126023}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Text: 
-  m_Anchor: 0
-  m_Alignment: 0
-  m_PixelOffset: {x: 0, y: 0}
-  m_LineSpacing: 1
-  m_TabSize: 4
-  m_Font: {fileID: 0}
-  m_Material: {fileID: 0}
-  m_FontSize: 0
-  m_FontStyle: 0
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_PixelCorrect: 1
-  m_RichText: 1
---- !u!131 &1424126031
-GUITexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1424126023}
-  m_Enabled: 1
-  m_Texture: {fileID: 0}
-  m_Color: {r: .5, g: .5, b: .5, a: .5}
-  m_PixelInset:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  m_LeftBorder: 0
-  m_RightBorder: 0
-  m_TopBorder: 0
-  m_BottomBorder: 0
 --- !u!114 &1424126032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19113,9 +19069,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTex:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2800000, guid: 6192d7486d7e19a4c9d5b41d2a5c413a, type: 3}
+  - {fileID: 2800000, guid: fd509d83b8210a74f8d25ffeb744e893, type: 3}
+  - {fileID: 2800000, guid: 1c865c263593bf347bd115ffd01ec122, type: 3}
 --- !u!1 &1425584803
 GameObject:
   m_ObjectHideFlags: 0

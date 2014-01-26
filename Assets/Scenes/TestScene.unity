@@ -3720,6 +3720,7 @@ MonoBehaviour:
   life: 1
   itemPosition: {fileID: 136642436}
   fireButton: {fileID: 1156292366}
+  moveButton: {fileID: 0}
 --- !u!61 &279189945
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9170,6 +9171,52 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 8df0b44455fdfc848b80415857943c02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &630221805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 630221807}
+  - 131: {fileID: 630221806}
+  m_Layer: 0
+  m_Name: JoystickBoard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!131 &630221806
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 630221805}
+  m_Enabled: 0
+  m_Texture: {fileID: 2800000, guid: cc2343ae186d64dea9a1b37758f9b302, type: 3}
+  m_Color: {r: .5, g: .5, b: .5, a: .5}
+  m_PixelInset:
+    serializedVersion: 2
+    x: -24.5
+    y: -24.5
+    width: 49
+    height: 49
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
+--- !u!4 &630221807
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 630221805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: .5, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &630330671
 GameObject:
   m_ObjectHideFlags: 0
@@ -15717,15 +15764,15 @@ GUITexture:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1156292365}
-  m_Enabled: 0
-  m_Texture: {fileID: 2800000, guid: b32f7b93e428c428c8d39e74dfcd393e, type: 3}
+  m_Enabled: 1
+  m_Texture: {fileID: 2800000, guid: 58aa9f59c0182405b81fc684e52f12f5, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
-    x: -64
-    y: -64
-    width: 128
-    height: 128
+    x: -40
+    y: -40
+    width: 80
+    height: 80
   m_LeftBorder: 0
   m_RightBorder: 0
   m_TopBorder: 0
@@ -15737,7 +15784,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1156292365}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .5, y: .5, z: 0}
+  m_LocalPosition: {x: .899999976, y: .150000006, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

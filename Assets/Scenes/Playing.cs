@@ -21,17 +21,19 @@ public class Playing : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		Debug.Log (life);
+		score = Time.time - time;
 		if (recentLevel > maxLevel) 
 		{
-			score = Time.time - time;
 			Application.LoadLevel("End");
 		}
 
 	}
 	void OnGUI()
 	{
-		GUI.DrawTexture (new Rect(0, 0, 100, 10), lifeTex[life]);
+		for(int i = 0; i < life; i++)
+		{
+			GUI.DrawTexture (new Rect(0 + i * (lifeTex[i].width + 5), 0, 100, 100), lifeTex[i]);
+		}
 		GUI.TextArea (new Rect(Screen.width * 9/10, 0, Screen.width, Screen.height*1/10), score.ToString());
 	}
 	public static void SetStaticPlayer(GameObject inPlayer)

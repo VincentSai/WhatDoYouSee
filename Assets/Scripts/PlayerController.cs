@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Start () {
-		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.WindowsWebPlayer || Application.platform == RuntimePlatform.OSXWebPlayer)
+		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.WindowsWebPlayer || Application.platform == RuntimePlatform.OSXWebPlayer || Application.platform == RuntimePlatform.MetroPlayerX86 || Application.platform == RuntimePlatform.MetroPlayerARM || Application.platform == RuntimePlatform.MetroPlayerX64)
 		{
 			fireButton.enabled = false;
 		}
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour {
 				break;
 			}
 		}
-#elif UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
+#elif UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER || UNITY_METRO
 		direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 #endif
 		if(direction.magnitude > 0)

@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Start () {
-		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor)
+		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.WindowsWebPlayer || Application.platform == RuntimePlatform.OSXWebPlayer)
 		{
 			fireButton.enabled = false;
 		}
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour {
 				break;
 			}
 		}
-#elif UNITY_EDITOR
+#elif UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
 		direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 #endif
 		if(direction.magnitude > 0)
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour {
 		SendMessage("MoveToDirection", direction, SendMessageOptions.DontRequireReceiver);
 	}
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
@@ -133,6 +133,8 @@ public class PlayerController : MonoBehaviour {
 		itemPosition.BroadcastMessage("RemoveItem", SendMessageOptions.DontRequireReceiver);
 		item.parent = itemPosition;
 		item.localPosition = Vector3.zero;
+		item.localRotation = Quaternion.identity;
+		item.localScale = Vector3.one;
 	}
 
 	IEnumerator Dead () {

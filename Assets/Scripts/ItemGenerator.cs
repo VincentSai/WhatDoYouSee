@@ -36,7 +36,7 @@ public class ItemGenerator : MonoBehaviour
 	{
 		GameObject tempItem, tempTexture;
 		string tempAttribute;
-		Vector2 randomPos = new Vector2(Random.Range (0, widthOfGround-1), Random.Range (0, heightOfGraund-1));
+		Vector2 randomPos = new Vector2(Random.Range (-widthOfGround, widthOfGround), Random.Range (-heightOfGraund, heightOfGraund));
 		int randomAttribute = Random.Range (0, numbersOfAttribute);
 		int randomTexture = Random.Range (0, numbersOfTextures);
 

@@ -14,24 +14,30 @@ public class PlayerController : MonoBehaviour {
 	public Transform itemPosition;
 	private Vector2 mDirection = -Vector2.up;
 	public GUITexture fireButton;
+	public GUITexture moveButton;
 	private eControlState mMoveControlState;
 	private eControlState mFireControlState;
 	private Vector2 mMoveTouchStartPosition;
 	private int mMoveTouchId = -1;
 	private int mFireTouchId = -1;
+	private bool mIsSuperman = false;
+	public float ratio = 1;
 
 	void Awake () {
-		GameManager.SetStaticPlayer (gameObject);
+		Playing.SetStaticPlayer (gameObject);
+//		Playing.life = life;
 	}
 
 	void Start () {
-		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor)
+		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.WindowsWebPlayer || Application.platform == RuntimePlatform.OSXWebPlayer)
 		{
 			fireButton.enabled = false;
 		}
 		else
 		{
+			ratio = 1.333f / (Screen.width / Screen.height);
 			fireButton.enabled = true;
+			fireButton.pixelInset = new Rect(fireButton.pixelInset.x * ratio, fireButton.pixelInset.y * ratio, fireButton.pixelInset.width * ratio, fireButton.pixelInset.height * ratio);
 		}
 	}
 
@@ -55,6 +61,8 @@ public class PlayerController : MonoBehaviour {
 					mMoveControlState = eControlState.Holding;
 					mMoveTouchStartPosition = touch.position;
 					mMoveTouchId = touch.fingerId;
+					moveButton.enabled = true;
+					moveButton.pixelInset = new Rect(touch.position.x, touch.position.y, moveButton.texture.width * ratio, moveButton.texture.height * ratio);
 				}
 			}
 			if(touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
@@ -63,6 +71,7 @@ public class PlayerController : MonoBehaviour {
 				{
 					mMoveControlState = eControlState.WaitingForTouch;
 					mMoveTouchId = -1;
+					moveButton.enabled = false;
 				}
 				if(touch.fingerId == mFireTouchId)
 				{
@@ -91,7 +100,7 @@ public class PlayerController : MonoBehaviour {
 				break;
 			}
 		}
-#elif UNITY_EDITOR
+#elif UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
 		direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 #endif
 		if(direction.magnitude > 0)
@@ -101,7 +110,7 @@ public class PlayerController : MonoBehaviour {
 		SendMessage("MoveToDirection", direction, SendMessageOptions.DontRequireReceiver);
 	}
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
@@ -122,7 +131,12 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Damage (int damage) {
+		if(mIsSuperman)
+		{
+			return;
+		}
 		life = life - damage;
+//		Playing.life = life;
 		if(life <= 0)
 		{
 			SendMessage("Dead", SendMessageOptions.DontRequireReceiver);
@@ -133,19 +147,23 @@ public class PlayerController : MonoBehaviour {
 		itemPosition.BroadcastMessage("RemoveItem", SendMessageOptions.DontRequireReceiver);
 		item.parent = itemPosition;
 		item.localPosition = Vector3.zero;
+		item.localRotation = Quaternion.identity;
+		item.localScale = Vector3.one;
 	}
 
 	IEnumerator Dead () {
 		enabled = false;
 		itemPosition.BroadcastMessage("RemoveItem", SendMessageOptions.DontRequireReceiver);
 		yield return new WaitForSeconds(3);
-		Application.LoadLevel(Application.loadedLevel);
+		Playing.PlayerDead();
 	}
 
 	IEnumerator BecomeSuperMan()
 	{
+		mIsSuperman = true;
 		SendMessage("SetSpeed", 6f, SendMessageOptions.DontRequireReceiver);
 		yield return new WaitForSeconds(3);
+		mIsSuperman = false;
 		SendMessage("SetSpeed", 3f, SendMessageOptions.DontRequireReceiver);
 	}
 }

@@ -5,28 +5,44 @@ public class Bomb : MonoBehaviour {
 
 	public float speed = 3;
 	public float radius = 1.5f;
+	public int bombCount = 3;
+	public float delay = 0.5f;
 	private Transform mTransform;
 	private float time;
-	private Vector3 bombDir;
-	private Vector3 originalPos;
+	private Vector2 bombDir;
+	private Vector2 originalPos;
 	private bool isBom = false;
-	
+	private float mLastFireTime = 0f;
+
 	void Start () 
 	{
 		mTransform = transform;
 	}
 	
-	void UseItem (Vector2 direction) 
+	IEnumerator UseItem (Vector2 direction) 
 	{
+		if(Time.time - mLastFireTime < delay)
+		{
+			yield break;
+		}
+		mLastFireTime = Time.time;
 		gameObject.tag = "Weapons";
 		bombDir.x = direction.x*2000;
 		bombDir.y = direction.y*2000;
-		bombDir.z = 0;
 		bombDir.Normalize ();
-		originalPos = transform.parent.position;
-		transform.parent = null;
+		//originalPos = transform.parent.position;
+		GameObject bombInstance = Instantiate(gameObject, mTransform.position, Quaternion.identity) as GameObject;
+		bombInstance.SendMessage("ThrowBomb", bombDir, SendMessageOptions.DontRequireReceiver);
+		bombCount -= 1;
+		if(bombCount <= 0)
+		{
+			transform.root.BroadcastMessage("RemoveItem", SendMessageOptions.DontRequireReceiver);
+		}
+		renderer.enabled = false;
+		yield return new WaitForSeconds(delay - (Time.time - mLastFireTime));
+		renderer.enabled = true;
 		//InvokeRepeating ("ThrowBomb", 0, 0.01f);
-		StartCoroutine (ThrowBomb ());
+//		StartCoroutine (ThrowBomb ());
 	}
 
 	void PlayGetItemSound () {
@@ -34,32 +50,34 @@ public class Bomb : MonoBehaviour {
 		SoundManager.instance.PlayAudioWithName("bomb" + index.ToString());
 	}
 
-	IEnumerator ThrowBomb () {
+	IEnumerator ThrowBomb (Vector2 direction) {
+		if(!mTransform)
+		{
+			mTransform = transform;
+		}
+		originalPos = (Vector2)mTransform.position;
 		time = 0;
 		while(true)
 		{
 			if(!isBom)
 				mTransform.position = Vector2.Lerp (originalPos, 
-			                                    originalPos+bombDir*speed, time);
-			if (time >= 1.0f && !isBom) 
+				                                    originalPos+direction*speed, time);
+			if (time >= 1f) 
 			{
 				collider2D.enabled = true;
 				isBom = true;
-				time = 0;
 				Collider2D[] targets;
 				targets = Physics2D.OverlapCircleAll((Vector2)mTransform.position, radius);
 				foreach(Collider2D target in targets)
 				{
 					target.SendMessage("SubHealth", SendMessageOptions.DontRequireReceiver);
 				}
-			}
-			if(isBom && time >= 0.3)
-			{
-				RemoveItem();
+				break;
 			}
 			time += Time.deltaTime;
 			yield return null;
 		}
+		transform.root.BroadcastMessage("RemoveItem", SendMessageOptions.DontRequireReceiver);
 	}
 	/*
 	void ThrowBomb()

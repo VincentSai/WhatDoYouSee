@@ -21,11 +21,6 @@ public class Gun : MonoBehaviour {
 		}
 		mLastFireTime = Time.time;
 
-		bulletAmount -= 1;
-		if(bulletAmount <= 0)
-		{
-			mTransform.root.BroadcastMessage("RemoveItem", SendMessageOptions.DontRequireReceiver);
-		}
 		GameObject bulletInstance = Instantiate(gameObject, mTransform.position, Quaternion.identity) as GameObject;
 		bulletInstance.layer = 9;
 		bulletInstance.renderer.enabled = true;
@@ -37,6 +32,12 @@ public class Gun : MonoBehaviour {
 		bulletInstance.collider2D.isTrigger = false;
 		bullectRigid.velocity = (direction * 20000).normalized * speed;
 		Destroy(bulletInstance, 2);
+
+		bulletAmount -= 1;
+		if(bulletAmount <= 0)
+		{
+			mTransform.root.BroadcastMessage("RemoveItem", SendMessageOptions.DontRequireReceiver);
+		}
 		renderer.enabled = false;
 		yield return new WaitForSeconds(delay - (Time.time - mLastFireTime));
 		renderer.enabled = true;

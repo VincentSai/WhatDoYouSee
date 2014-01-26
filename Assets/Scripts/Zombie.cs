@@ -49,7 +49,7 @@ public class Zombie : MonoBehaviour
 		{
 			healthPoint--;
 		}
-		if (healthPoint <= 0)
+		if (healthPoint == 0)
 		{
 			if(monsterGenerator != null)
 				monsterGenerator.SendMessage("Die", transform, SendMessageOptions.DontRequireReceiver);
@@ -68,7 +68,7 @@ public class Zombie : MonoBehaviour
 	void SubHealth()
 	{
 		healthPoint--;
-		if (healthPoint <= 0)
+		if (healthPoint == 0)
 		{
 			monsterGenerator.SendMessage("Die", transform, SendMessageOptions.DontRequireReceiver);
 			SendMessage("Dead", SendMessageOptions.DontRequireReceiver);

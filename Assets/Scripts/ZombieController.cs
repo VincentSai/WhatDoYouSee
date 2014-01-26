@@ -27,11 +27,13 @@ public class ZombieController : MonoBehaviour
 		while (true) 
 		{
 			time += Time.deltaTime;
-
 			if(time >= timeToChangeDir)
 			{
-				randomDir = new Vector2(Random.Range(-100, 100), Random.Range(-100, 100));
+				int randX = 
+				randomDir = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2));
+				time = 0;
 			}
+			yield return null;
 		}
 	}
 

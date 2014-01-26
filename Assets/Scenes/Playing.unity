@@ -6023,6 +6023,7 @@ MonoBehaviour:
   zombie: {fileID: 100000, guid: 623e16a33df692b41af45350eb8dec95, type: 2}
   firstZombieAppearTime: 5
   zombieGenerateTimeInterval: 2
+  arrowTexture: {fileID: 2800000, guid: 3d66cc632c7aa44fc81d3919ee361c46, type: 3}
 --- !u!4 &414054493
 Transform:
   m_ObjectHideFlags: 0
@@ -10393,6 +10394,58 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 8df0b44455fdfc848b80415857943c02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &717914972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 717914974}
+  - 114: {fileID: 717914973}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &717914973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 717914972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2e70cd22b3940ad930da173ba971bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texture: {fileID: 2800000, guid: 106fbb57bab6b4c10a254c545eaf19f7, type: 3}
+  angle: -48.5
+  size: {x: 128, y: 128}
+  ScreenpointToAlign: 0
+  relativePosition: {x: 111, y: 111}
+  pos: {x: 0, y: 0}
+  rect:
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  pivot: {x: 0, y: 0}
+  rotAngle: 0
+  pivotPoint: {x: 0, y: 0}
+--- !u!4 &717914974
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 717914972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &722624831
 GameObject:
   m_ObjectHideFlags: 0

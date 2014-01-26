@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿
+
+
+using UnityEngine;
 using System.Collections;
 
 public class Playing : MonoBehaviour 
@@ -11,6 +14,7 @@ public class Playing : MonoBehaviour
 	public Texture[] lifeTex = new Texture[4];
 	public static int life = 3;
 	private static float time;
+	public GUIStyle textStyle;
 	// Use this for initialization
 	void Start () 
 	{
@@ -34,7 +38,7 @@ public class Playing : MonoBehaviour
 		{
 			GUI.DrawTexture (new Rect(0 + i * (lifeTex[i].width + 5), 0, 100, 100), lifeTex[i]);
 		}
-		GUI.TextArea (new Rect(Screen.width * 9/10, 0, Screen.width, Screen.height*1/10), score.ToString());
+		GUI.TextArea (new Rect(Screen.width * 9/10, 0, Screen.width, Screen.height*1/10), score.ToString(), textStyle);
 	}
 	public static void SetStaticPlayer(GameObject inPlayer)
 	{

@@ -101,7 +101,7 @@ GUITexture:
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
-    x: -275.5
+    x: -275.100006
     y: -155
     width: 551
     height: 310

@@ -10,6 +10,7 @@ public class Playing : MonoBehaviour
 	public static int recentLevel;
 	public Texture[] lifeTex = new Texture[4];
 	public static int life;
+	public GUIStyle style;
 	// Use this for initialization
 	void Start () 
 	{
@@ -19,7 +20,7 @@ public class Playing : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		Debug.Log (life);
+		score++;
 		if (recentLevel == maxLevel) 
 		{
 			Application.LoadLevel("End");	
@@ -29,7 +30,7 @@ public class Playing : MonoBehaviour
 	void OnGUI()
 	{
 		GUI.DrawTexture (new Rect(0, 0, 100, 10), lifeTex[life]);
-		GUI.TextArea (new Rect(Screen.width * 9/10, 0, Screen.width, Screen.height*1/10), score.ToString());
+		GUI.TextArea (new Rect(Screen.width * 9/10, 0, Screen.width, Screen.height*1/10), score.ToString(), style);
 	}
 	public static void SetStaticPlayer(GameObject inPlayer)
 	{

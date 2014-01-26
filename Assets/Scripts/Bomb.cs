@@ -64,6 +64,7 @@ public class Bomb : MonoBehaviour {
 				                                    originalPos+direction*speed, time);
 			if (time >= 1f) 
 			{
+				SoundManager.instance.SendMessage("Bomb", mTransform.position, SendMessageOptions.DontRequireReceiver);
 				collider2D.enabled = true;
 				isBom = true;
 				Collider2D[] targets;

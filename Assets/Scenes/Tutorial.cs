@@ -24,7 +24,10 @@ public class Tutorial : MonoBehaviour {
 		if (time >= timeToChangePages) 
 		{
 			if(willChangeLevel)
+			{
+				Playing.life = 3;
 				Application.LoadLevel("Playing");
+			}
 			else
 				nowPageNumber++;
 

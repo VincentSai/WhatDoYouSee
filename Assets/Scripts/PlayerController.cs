@@ -14,16 +14,18 @@ public class PlayerController : MonoBehaviour {
 	public Transform itemPosition;
 	private Vector2 mDirection = -Vector2.up;
 	public GUITexture fireButton;
+	public GUITexture moveButton;
 	private eControlState mMoveControlState;
 	private eControlState mFireControlState;
 	private Vector2 mMoveTouchStartPosition;
 	private int mMoveTouchId = -1;
 	private int mFireTouchId = -1;
 	private bool mIsSuperman = false;
+	public float ratio = 1;
 
 	void Awake () {
 		Playing.SetStaticPlayer (gameObject);
-		Playing.life = life;
+//		Playing.life = life;
 	}
 
 	void Start () {
@@ -33,7 +35,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		else
 		{
+			ratio = 1.333f / (Screen.width / Screen.height);
 			fireButton.enabled = true;
+			fireButton.pixelInset = new Rect(fireButton.pixelInset.x * ratio, fireButton.pixelInset.y * ratio, fireButton.pixelInset.width * ratio, fireButton.pixelInset.height * ratio);
 		}
 	}
 
@@ -57,6 +61,8 @@ public class PlayerController : MonoBehaviour {
 					mMoveControlState = eControlState.Holding;
 					mMoveTouchStartPosition = touch.position;
 					mMoveTouchId = touch.fingerId;
+					moveButton.enabled = true;
+					moveButton.pixelInset = new Rect(touch.position.x, touch.position.y, moveButton.texture.width * ratio, moveButton.texture.height * ratio);
 				}
 			}
 			if(touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
@@ -65,6 +71,7 @@ public class PlayerController : MonoBehaviour {
 				{
 					mMoveControlState = eControlState.WaitingForTouch;
 					mMoveTouchId = -1;
+					moveButton.enabled = false;
 				}
 				if(touch.fingerId == mFireTouchId)
 				{
@@ -129,7 +136,7 @@ public class PlayerController : MonoBehaviour {
 			return;
 		}
 		life = life - damage;
-		Playing.life = life;
+//		Playing.life = life;
 		if(life <= 0)
 		{
 			SendMessage("Dead", SendMessageOptions.DontRequireReceiver);

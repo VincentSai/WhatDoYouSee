@@ -98,11 +98,64 @@ public class ItemGenerator : MonoBehaviour
 	 * 
 	 * 
 	 * *********************/
-	void GenerateItem( Vector2 Pos )
+	void Die( Transform zombie )
 	{
-		float probability = Random.Range (0, 100) / 100.0f;
+		float probability = Random.value;
 
 		if(probability >= zombieDropRate)
-			Instantiate (item, Pos, Quaternion.identity);
+		{
+			GameObject tempItem, tempTexture;
+			string tempAttribute;
+			int randomAttribute = Random.Range (0, numbersOfAttribute);
+			int randomTexture = Random.Range (0, numbersOfTextures);
+			
+			switch (randomAttribute) 
+			{
+			case 0:
+				tempAttribute = "Gun";
+				break;
+			case 1:
+				tempAttribute = "Bomb";
+				break;
+			case 2:
+				tempAttribute = "Food";
+				break;
+			default:
+				tempAttribute = "Gun";
+				break;
+			}
+			switch (randomTexture) 
+			{
+			case 0:
+				tempTexture = candy;
+				break;
+			case 1:
+				tempTexture = chair;
+				break;
+			case 2:
+				tempTexture = pillow;
+				break;
+			case 3:
+				tempTexture = stethoscope;
+				break;
+			case 4:
+				tempTexture = apple;
+				break;
+			case 5:
+				tempTexture = orange;
+				break;
+			case 6:
+				tempTexture = pizza;
+				break;
+			default:
+				tempTexture = candy;
+				break;
+				
+			}
+			
+			
+			tempItem = (GameObject)Instantiate (tempTexture, zombie.position, Quaternion.identity);
+			tempItem.AddComponent(tempAttribute);
+		}
 	}
 }

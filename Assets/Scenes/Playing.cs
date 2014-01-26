@@ -10,11 +10,9 @@ public class Playing : MonoBehaviour
 	public static int recentLevel;
 	public Texture[] lifeTex = new Texture[4];
 	public static int life;
-<<<<<<< HEAD
 	public GUIStyle style;
-=======
 	private float time;
->>>>>>> 77e419a75d6505b4e5879dd11893b53cb993a92d
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -25,13 +23,10 @@ public class Playing : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-<<<<<<< HEAD
 		score++;
-		if (recentLevel == maxLevel) 
-=======
+		if (recentLevel == maxLevel)
 		Debug.Log (life);
 		if (recentLevel > maxLevel) 
->>>>>>> 77e419a75d6505b4e5879dd11893b53cb993a92d
 		{
 			score = Time.time - time;
 			Application.LoadLevel("End");	

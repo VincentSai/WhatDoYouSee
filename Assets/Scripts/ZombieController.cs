@@ -8,13 +8,18 @@ public class ZombieController : MonoBehaviour
 	private Vector2 randomDir;
 	private float time;
 
+	void Start()
+	{
+		if(randomWalk) 
+			StartCoroutine (RandomDir());
+		timeToChangeDir = Random.Range (0.5f, timeToChangeDir);
+	}
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
 		if (randomWalk) 
 		{
-			StartCoroutine (RandomDir());
-			SendMessage("MoveToDirection", randomDir , SendMessageOptions.DontRequireReceiver);
+			SendMessage("MoveToDirection", randomDir.normalized/10.0f , SendMessageOptions.DontRequireReceiver);
 		}
 		else
 		{
@@ -29,8 +34,8 @@ public class ZombieController : MonoBehaviour
 			time += Time.deltaTime;
 			if(time >= timeToChangeDir)
 			{
-				int randX = 
-				randomDir = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2));
+				Debug.Log(3);
+				randomDir = new Vector2(Random.Range(-10, 10)/10.0f, Random.Range(-10,10)/10.0f);
 				time = 0;
 			}
 			yield return null;

@@ -5,7 +5,7 @@ using System.Collections;
 public class ZombieGenerator : MonoBehaviour 
 {
 	public int maxNumbersOfMonsters;
-	public int maxLevel;
+	private int maxLevel;
 	public float maxSpeed;
 	public float minSpeed;
 	public int maxHP;
@@ -24,6 +24,7 @@ public class ZombieGenerator : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		maxLevel = Playing.maxLevel;
 		recentLevel = 1;
 		recentNumbersOfMonsters = 0;
 		generateMonster = true;
@@ -51,6 +52,7 @@ public class ZombieGenerator : MonoBehaviour
 		} else if (recentNumbersOfMonsters == 0 && !generateMonster) 
 		{
 			recentLevel++;
+			Playing.recentLevel = recentLevel;
 			generateMonster = true;
 			generatedMonsters = 0;
 

@@ -9,8 +9,8 @@ public class Playing : MonoBehaviour
 	public static int maxLevel = 10;
 	public static int recentLevel;
 	public Texture[] lifeTex = new Texture[4];
-	public static int life;
-	private float time;
+	public static int life = 3;
+	private static float time;
 	// Use this for initialization
 	void Start () 
 	{
@@ -25,7 +25,7 @@ public class Playing : MonoBehaviour
 		if (recentLevel > maxLevel) 
 		{
 			score = Time.time - time;
-			Application.LoadLevel("End");	
+			Application.LoadLevel("End");
 		}
 
 	}
@@ -41,5 +41,18 @@ public class Playing : MonoBehaviour
 	public static void IncreaseScore(float inScore)
 	{
 		score += inScore;
+	}
+
+	public static void PlayerDead () {
+		life -= 1;
+		if(life <= 0)
+		{
+			score = Time.time - time;
+			Application.LoadLevel("End");
+		}
+		else
+		{
+			Application.LoadLevel(Application.loadedLevel);
+		}
 	}
 }

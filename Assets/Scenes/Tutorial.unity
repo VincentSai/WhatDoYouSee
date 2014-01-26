@@ -167,12 +167,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialPages:
-  - {fileID: 2800000, guid: 6192d7486d7e19a4c9d5b41d2a5c413a, type: 3}
-  - {fileID: 2800000, guid: fd509d83b8210a74f8d25ffeb744e893, type: 3}
-  - {fileID: 2800000, guid: b49eee648ad641542badb7fc028cfba6, type: 3}
-  - {fileID: 2800000, guid: fd509d83b8210a74f8d25ffeb744e893, type: 3}
-  - {fileID: 2800000, guid: fd509d83b8210a74f8d25ffeb744e893, type: 3}
-  - {fileID: 2800000, guid: 255ca94ab1e035a4eb87e69dc2a2e144, type: 3}
-  totalPage: 6
-  timeToChangePages: .5
+  - {fileID: 2800000, guid: 4a4cd899434b8df4f94442b4928d8d9d, type: 3}
+  - {fileID: 2800000, guid: 5f0606af4d3088946a7b5693ea18afb1, type: 3}
+  - {fileID: 2800000, guid: dd667cf41b9147249aff192d03e64341, type: 3}
+  - {fileID: 2800000, guid: de71b62a6dfeeaf4a8e54dcbc9421864, type: 3}
+  totalPage: 4
+  timeToChangePages: 1
   time: 0

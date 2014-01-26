@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Tutorial : MonoBehaviour {
 
-	public Texture[] tutorialPages = new Texture[6];
-	public int totalPage = 6;
+	public Texture[] tutorialPages = new Texture[4];
+	public int totalPage = 4;
 	private int nowPageNumber;
 	public float timeToChangePages;
 	public float time;

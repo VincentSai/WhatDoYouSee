@@ -5,23 +5,26 @@ public class Playing : MonoBehaviour
 {
 	
 	public static GameObject player;
-	public static int score;
+	public static float score;
 	public static int maxLevel = 10;
 	public static int recentLevel;
 	public Texture[] lifeTex = new Texture[4];
 	public static int life;
+	private float time;
 	// Use this for initialization
 	void Start () 
 	{
 		score = 0;
+		time = Time.time;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		Debug.Log (life);
-		if (recentLevel == maxLevel) 
+		if (recentLevel > maxLevel) 
 		{
+			score = Time.time - time;
 			Application.LoadLevel("End");	
 		}
 
@@ -35,7 +38,7 @@ public class Playing : MonoBehaviour
 	{
 		player = inPlayer;
 	}
-	public static void IncreaseScore(int inScore)
+	public static void IncreaseScore(float inScore)
 	{
 		score += inScore;
 	}
